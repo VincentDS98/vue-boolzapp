@@ -173,6 +173,27 @@ crateApp({
     methods: {
         change(i){
             this.activeContact = i;
+        },
+        addMessage(){
+            const newMessage = {
+                message:this.newMessage,
+                status: 'sent'
+            };
+            this.contacts[this.activeContact].messages.push(newMessage);
+
+            this.message = '';
+            setTimeout(() => {
+                const newRMessage = {
+                message: 'ok',
+                status: 'recive'
+                };
+
+                this.contacts[this.activeContact].messages.push(newRMessage);
+            },1000);
+           
+
+            
+
         }
     }
 }).mount('#app');

@@ -37,7 +37,8 @@
                     </div>
                 </section>
                 <main>
-                    <div v-for="(contact,i) in contacts" class="single-contact-container" 
+                    <div v-for="(contact,i) in contacts" 
+                    class="single-contact-container" 
                     :class="i == activeContat 'active' :''"
                     @click="change(i)"
                     >
@@ -218,7 +219,10 @@
 
                 <footer>
                     <div></div>
-                    <div class="message-input-container"></div>
+                    <div class="message-input-container">
+                        <input type=" text" @keyup.enter="addMessage()" 
+                        v-model="newMessage" placeholder="Scrivi">
+                    </div>
                     <div></div>
                 </footer>
             </section>
